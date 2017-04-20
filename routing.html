@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Routing AngularJS</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.min.js"></script> <!-- Angular Route Module-->
+</head>
+<body ng-app="myApp">
+	<p><a href="#/">Main</a></p>
+
+	<a href="#/rPag1">rPag11</a>
+	<a href="#/rPag2">rPag2</a>
+	<a href="#/rPag3">rPag3</a>
+
+	<div ng-view=""></div><!-- Container -->
+
+	<script>
+		var app = angular.module("myApp", ["ngRoute"]);
+		app.config(function($routeProvider){
+			$routeProvider
+			.when("/", {
+				templateUrl : "rMain.htm"
+			})
+			.when("/rPag1", {
+				templateUrl : "rPag1.htm"
+			})
+			.when("/rPag2", {
+				templateUrl : "rPag2.htm"
+			})
+			.when("/rPag3", {
+				templateUrl : "rPag3.htm"
+			});
+		});
+	</script>
+</body>
+</html>
